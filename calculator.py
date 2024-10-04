@@ -17,7 +17,6 @@ s_format=pyfiglet.figlet_format("WELCOME   TO   MINI   CALCULATOR",font="mini")
 print(f"{Fore.RED}{s_format}")
 print(f"{Fore.GREEN}1:Arithmetic operation        {Fore.YELLOW}  2:Trignometic operation")
 print(f"{Fore.MAGENTA}3:Hyperbolic operation      {Fore.CYAN}    4:Expon & log operation")
-print(f"{Fore.BLUE}5:Angle convert")
 # create the choice for using case for every operation
 choice=int(input(f"{Fore.LIGHTCYAN_EX}Enter the choice:"))
 # matching the choice 
@@ -93,8 +92,8 @@ match choice:
                 sine_fraction=Fraction(value).limit_denominator()
                 # Rounding the sine value
                 v_rounded = round(value, 3)
-                print(f"value of sin{angle_in_degree}::{v_rounded}")
-                print(f"value of sin{angle_in_degree}::{sine_fraction}")
+                print(f"{Fore.LIGHTGREEN_EX}value of sin{angle_in_degree}::{v_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of sin{angle_in_degree}::{sine_fraction}")
             
             # case B for finding the  value of cosine angle
             case 'B':
@@ -105,10 +104,10 @@ match choice:
                 c_fraction=Fraction(c_value).limit_denominator()
                 #rounding the cosine value
                 c_rounded=round(c_value,3)
-                print(f"value of cos{angle_degree}::{c_rounded}")
-                print(f"value of cos{angle_degree}::{c_fraction}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cos{angle_degree}::{c_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cos{angle_degree}::{c_fraction}")
             # case c for finding the  value of tangent angle
-            case 'c':
+            case 'C':
                 t_degree=float(input("Enter the angle:"))
                 t_radian=mp.radians(t_degree)
                 t_value=mp.tan(t_radian)
@@ -116,8 +115,80 @@ match choice:
                 t_fraction=Fraction(t_value).limit_denominator()
                 #rounding the cosine value
                 t_rounded=round(t_value,3)
-                print(f"value of cos{t_degree}::{t_rounded}")
-                print(f"value of cos{t_degree}::{t_fraction}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cos{t_degree}::{t_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cos{t_degree}::{t_fraction}")
+    case 3:
+        print("\n\n\n")
+        print(f"{Fore.RED}WELCOME TO HYPERBOLIC  OPERATION")
+        print(f"{Fore.GREEN}x:SinhX       {Fore.YELLOW}  y:CoshX")
+        print(f"{Fore.MAGENTA}z:TanhX")
+        opt=str(input("Enter the option(x/y/z):"))
+        # matching case for the hyperbolic function
+        match opt:
+            # case x for finding the value of hyperbolic sine function 
+            case 'x':
+                def v_sine(value):
+                    return mp.sinh(value)
+                # calling the value 
+                a_degree=float(input("Enter the angle in degree:"))
+                a_rad=mp.radians(a_degree)
+                sinhx=v_sine(a_rad)
+                # rounded value in decimal 
+                s_rounded=round(sinhx,3)
+                print(f"value of sinh{a_degree}::{s_rounded}")
+            # case y for  find the value of hyperbolic cos function 
+            case 'y':
+                def v_cos(value1):
+                    return mp.sinh(value1)
+                # calling the value 
+                h_degree=float(input("Enter the angle in degree:"))
+                h_rad=mp.radians(h_degree)
+                coshx=v_cos(h_rad)
+                # rounded value in decimal 
+                h_rounded=round(coshx,3)
+                print(f"value of cosh{h_degree}::{h_rounded}")
+            # case z for  find the value of hyperbolic cos function 
+            case 'z':
+                def v_tan(value2):
+                    return mp.sinh(value2)
+                # calling the value 
+                t_degree=float(input("Enter the angle in degree:"))
+                t_rad=mp.radians(t_degree)
+                tanhx=v_tan(t_rad)
+                # rounded value in decimal 
+                t_rounded=round(tanhx,3)
+                print(f"value of cosh{t_degree}::{t_rounded}")
+    case 4:
+        print("\n\n\n")
+        print(f"{Fore.GREEN}X:Power     {Fore.YELLOW}  Y:lograthmetic operation")
+        print(f"{Fore.MAGENTA}Z:Exponential operation")
+        opt1=str(input("Enter the option:"))
+        #match the following operation using match
+        match opt1:
+            # case X for find the power of the given number
+            case 'X':
+                print("\n")
+                def b_power(base,power):
+                    return mp.pow(base,power)
+                # calling the function 
+                base1=int(input("Enter the base number:"))
+                power1=int(input("Enter the power number:"))
+                result=int(b_power(base1,power1))
+                print(f"{base1} power {power1}::{result}")
+            case 'Y':
+                print("\n")
+                def log_fun(num):
+                    if num==0:
+                        return 1
+                    
+                    
+
+
+
+
+
+
+
                      
 
                        

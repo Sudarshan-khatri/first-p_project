@@ -18,7 +18,7 @@ print(f"{Fore.RED}{s_format}")
 print(f"{Fore.GREEN}1:Arithmetic operation        {Fore.YELLOW}  2:Trignometic operation")
 print(f"{Fore.MAGENTA}3:Hyperbolic operation      {Fore.CYAN}    4:Expon & log operation")
 # create the choice for using case for every operation
-choice=int(input(f"{Fore.LIGHTCYAN_EX}Enter the choice:"))
+choice=int(input("Enter the choice:"))
 # matching the choice 
 match choice:
     case 1:
@@ -135,7 +135,7 @@ match choice:
                 sinhx=v_sine(a_rad)
                 # rounded value in decimal 
                 s_rounded=round(sinhx,3)
-                print(f"value of sinh{a_degree}::{s_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of sinh{a_degree}::{s_rounded}")
             # case y for  find the value of hyperbolic cos function 
             case 'y':
                 def v_cos(value1):
@@ -146,7 +146,7 @@ match choice:
                 coshx=v_cos(h_rad)
                 # rounded value in decimal 
                 h_rounded=round(coshx,3)
-                print(f"value of cosh{h_degree}::{h_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cosh{h_degree}::{h_rounded}")
             # case z for  find the value of hyperbolic cos function 
             case 'z':
                 def v_tan(value2):
@@ -157,7 +157,7 @@ match choice:
                 tanhx=v_tan(t_rad)
                 # rounded value in decimal 
                 t_rounded=round(tanhx,3)
-                print(f"value of cosh{t_degree}::{t_rounded}")
+                print(f"{Fore.LIGHTGREEN_EX}value of cosh{t_degree}::{t_rounded}")
     case 4:
         print("\n\n\n")
         print(f"{Fore.GREEN}X:Power     {Fore.YELLOW}  Y:lograthmetic operation")
@@ -170,17 +170,56 @@ match choice:
                 print("\n")
                 def b_power(base,power):
                     return mp.pow(base,power)
-                # calling the function 
-                base1=int(input("Enter the base number:"))
-                power1=int(input("Enter the power number:"))
-                result=int(b_power(base1,power1))
-                print(f"{base1} power {power1}::{result}")
+                # function to find the square root 
+                def square(num1):
+                    return mp.sqrt(num1)
+                # making the option for power and squrare 
+                ps_choose=int(input("Enter the option(1/2)::"))
+                if ps_choose==1:
+                    # calling  for power function
+                    base1=int(input("Enter the base number::"))
+                    power1=int(input("Enter the power number::"))
+                    result=int(b_power(base1,power1))
+                    print(f"{Fore.LIGHTGREEN_EX}{base1} power {power1}::{result}")
+                if ps_choose==2:
+                    # calling for squrae fucntion 
+                    s_num=int(input("Enter the to find the square::"))
+                    result1=square(s_num)
+                    print(f"{Fore.LIGHTGREEN_EX}square root of {s_num}::{result1}")
+            # case Y is used to find the log value natural ,base-2 ,base-10 logarithm
             case 'Y':
                 print("\n")
                 def log_fun(num):
                     if num==0:
                         return 1
-                    
+                    n=int(input("choose the log operation(1/2/3):"))
+                    if n==1:
+                        return mp.log10(num)
+                    elif n==2: 
+                        return mp.log2(num)
+                    elif n==3:
+                        return mp.log1p(num)
+                # calling the fuction
+                l_num=float(input("Enter the number to find the log value:"))
+                print(f"{Fore.LIGHTGREEN_EX}value of log{l_num}::{log_fun(l_num)}")
+            # case Z for the exponential function whic help to find the exponential value like exp(x),exp2(x),expm1(x)
+            case 'Z':
+                def e_fun(num1):
+                    if num1==0:
+                        return 1
+                    opt=int(input("choose the case(1:exp(x)/2:exp2(x)/3:expm1(x)):"))
+                    if opt==1:
+                        return mp.exp(num1)
+                    elif opt==2:
+                        return mp.exp2(num1)
+                    elif opt==3:
+                        return mp.expm1(num1)
+                # calling the function 
+                e_num=float(input("Enter the number to find the exponential number:"))
+                e_result=e_fun(e_num)
+                print(f"{Fore.LIGHTGREEN_EX}exponential value of{e_num}::{e_result}")
+
+
                     
 
 
